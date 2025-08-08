@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/*CSS for the heading text called "Waste Bureau Form"*/
+.headingForm {
+  text-align: center;
+  background-color: black;
+  color: blue;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+  padding: 10px; /* add some spacing */
+  margin: 0 auto 15px auto; /*Adds space below*/
+  //max-width: 90vw; /* prevent overflow on very small screens */
+  word-wrap: break-word; /*allow breaking long words*/
+  font-size: clamp(1rem, 4vw, 2.5rem); /*responsive font size*/
+  white-space: normal;
+  display: block; /* ensure block level for margin auto */
+}
+/*End*/
+
+/*Adjusting the look of the
+front-end on smaller screens*/
+@media (max-width: 600px) {
+  .headingForm {
+    text-align: left;
+    padding-left: 10px; /* add some left space */
+  }
+}
+/*--End--*/
