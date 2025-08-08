@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/automatedReport/static/css/main.130f067d.css",
+    "main.js": "/automatedReport/static/js/main.389124be.js",
+    "static/js/453.7fdd256a.chunk.js": "/automatedReport/static/js/453.7fdd256a.chunk.js",
+    "index.html": "/automatedReport/index.html",
+    "main.130f067d.css.map": "/automatedReport/static/css/main.130f067d.css.map",
+    "main.389124be.js.map": "/automatedReport/static/js/main.389124be.js.map",
+    "453.7fdd256a.chunk.js.map": "/automatedReport/static/js/453.7fdd256a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.130f067d.css",
+    "static/js/main.389124be.js"
+  ]
+}
