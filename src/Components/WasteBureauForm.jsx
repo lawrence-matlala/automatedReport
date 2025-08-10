@@ -62,28 +62,32 @@ const WasteBureauForm = () => {
       <h1 className="headingForm">Waste Bureau Form</h1>
       {/*Creating the Form*/}
       <form>
-        {/* Add drop-down for Dealer Name here */}
-        <label>
-          Dealer Name:
-          <select value={dealer} onChange={handleDealerChange}>
-            <option value="" disabled>
-              Select Dealer
-            </option>
-            {dealers.map((d, index) => (
-              <option key={index} value={d}>
-                {d}
+        <div className="centered">
+          {/* Add drop-down for Dealer Name here */}
+          <label>
+            Dealer Name:
+            <select value={dealer} onChange={handleDealerChange}>
+              <option value="" disabled>
+                Select Dealer
               </option>
-            ))}
-          </select>
-        </label>
-        {/*--End--*/}
-        <br />
-        <label>
-          Data:
-          <input type="text" name="data" />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
+              {dealers.map((d, index) => (
+                <option key={index} value={d}>
+                  {d}
+                </option>
+              ))}
+            </select>
+          </label>
+          {/*--End--*/}
+          <br />
+
+          {/*Adding the Date and its input*/}
+          <label className>
+            Date:
+            <input type="date" name="date" />
+          </label>
+          {/*--End--*/}
+          <br />
+        </div>
       </form>
     </div>
   );

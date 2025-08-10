@@ -26,3 +26,70 @@ front-end on smaller screens*/
   }
 }
 /*--End--*/
+
+/* Add margin above the whole label */
+label {
+  display: block; /* makes margin work nicely */
+  margin-top: 30px; /* space above label */
+  margin-left: 15px; /* space from left edge */
+  font-weight: bold;
+  //color: white;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Add space between label text and dropdown */
+label > select {
+  margin-left: 0px; /* space between label text and dropdown */
+  padding: 5px;
+  min-width: 200px; /* optional: set a minimum width */
+}
+/*--End--*/
+
+/* Making the contents of the form to appear at the 
+middle of the screen*/
+
+.centered {
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  justify-content: center;
+  padding: 0 15px; /* small side padding for small screens */
+  flex-wrap: wrap; /* allow wrapping on small screens */
+}
+
+/* Optional: reduce width on bigger screens */
+.centered label {
+  /*min-width: 250px;
+  //display: flex;
+  //align-items: center;
+  //margin-top: 15px;
+  align-items: flex-start;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;*/
+
+  display: block; /* Makes label take the full width */
+  margin-bottom: 5px; /* Small space between label and input */
+}
+
+/* On really small screens, make it full width */
+@media (max-width: 480px) {
+  .centered {
+    justify-content: flex-start; /* align left on small */
+  }
+  .centered label {
+    width: 100%;
+  }
+}
+
+/*--End--!!*/
+
+/* This CSS targets the select dropdown and 
+the date input inside labels within .centered and does*/
+
+.centered label select,
+.centered label input[type="date"] {
+  margin-left: 0px;
+  padding: 5px;
+  min-width: 220px; /* same width for dropdown and date input */
+  box-sizing: border-box;
+}
+/*End!!!*/
