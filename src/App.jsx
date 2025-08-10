@@ -1,7 +1,71 @@
 //import WasteBureauForm from "./Components/WasteBureauForm";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
+  // Labels for your numeric inputs
+  const numericFields = [
+    "Passenger",
+    "Light Commercial",
+    "4x4",
+    "Heavy Commercial",
+    "Agriculture",
+    "Motor Cycle",
+    "Industrial and Solid",
+    "Aircraft",
+    "OTR",
+    "Other Pneumatic",
+  ];
+  //End
+
+  //Stores current numeric values
+  // State to store all numeric input values (default 0)
+  const [formValues, setFormValues] = useState(
+    numericFields.reduce((acc, label) => {
+      acc[label] = 0;
+      return acc;
+    }, {})
+  );
+  //End
+
+  /*This code defines a function handleFocus that runs when 
+  an input field gets focused (clicked or tabbed into).
+Purpose:
+It checks if the input's current value is "0" (the default).
+If yes, it clears the input's value by setting it to an 
+empty string "".*/
+  const handleFocus = (e) => {
+    if (e.target.value === "0") {
+      e.target.value = "";
+    }
+  };
+  //End
+
+  /*This code defines a function handleBlur that runs when an 
+  input field loses focus (when the user clicks or tabs 
+  away from the input).
+Purpose:
+It gets the input’s current value and trims any extra spaces.
+If the input is empty (user didn’t enter anything), i
+t sets the value back to 0 (the default).
+If there is a value, it converts it to a number.
+It then updates the state (formValues) to save this 
+number for the specific input (label identifies which input).*/
+  const handleBlur = (label, e) => {
+    const value = e.target.value.trim();
+    const newValue = value === "" ? 0 : Number(value);
+    setFormValues((prev) => ({ ...prev, [label]: newValue }));
+  };
+  //End
+
+  //
+  // Calculating the total of all inputs
+  const total = Object.values(formValues).reduce(
+    (acc, curr) => acc + Number(curr),
+    0
+  );
+  //End
+
   return (
     <div className="container">
       <h1>Waste Bureau Form</h1>
@@ -177,6 +241,47 @@ function App() {
           id="location"
           required
         />
+
+        <label htmlFor="vehicle">Vehicle Registration*</label>
+        <input
+          type="text"
+          placeholder="Enter Vehicle Registration*"
+          name="vehicle"
+          id="vehicle"
+          required
+        />
+
+        {/* 
+It renders a list of number inputs for each tyre category, 
+each showing a default value from state, clearing zero on focus, 
+resetting to zero if left empty on blur, and updating 
+state as the user types.*/}
+        <h3>Tyre Categories</h3>
+        {numericFields.map((label) => (
+          <div key={label}>
+            <label>{label}</label>
+            <input
+              type="number"
+              value={formValues[label]}
+              onFocus={handleFocus}
+              onBlur={(e) => handleBlur(label, e)}
+              onChange={(e) =>
+                setFormValues((prev) => ({
+                  ...prev,
+                  [label]: e.target.value,
+                }))
+              }
+              min="0"
+            />
+          </div>
+        ))}
+        {/*End*/}
+
+        {/*Displaying the total sum of inputs*/}
+        <div style={{ marginTop: "10px", fontWeight: "bold" }}>
+          Total: {total}
+        </div>
+        {/*End*/}
 
         {/*Adding a submit button*/}
         <button type="submit">Submit</button>

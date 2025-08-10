@@ -26,6 +26,12 @@ h1 {
   color: #4206a3;
 }
 
+h3 {
+  font-size: large;
+  text-align: center;
+  color: #4206a3;
+}
+
 label {
   font-size: 15px;
   display: block;
